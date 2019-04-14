@@ -5,18 +5,16 @@ const cors = require("cors");
 
 const app = express();
 
+app.use(cors());
+
 const server = require("http").Server(app); 
 const io = require("socket.io")(server);
 
-app.use(cors());
-
-io.on("connection", socket => {
-  socket.on("connectRoom"),
-    box => {
+io.on('connection', socket => {
+  socket.on('connectionRoom', box => {
       socket.join(box);
-    };
-
-  console.log("ok");
+  });
+  console.log('OK');
 });
 
 mongoose.connect(
